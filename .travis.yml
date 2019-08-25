@@ -1,0 +1,20 @@
+before_install:
+  - docker pull pamplemousse/latex
+
+deploy:
+  - api_key:
+      secure: GIYyzJQw+WmjbuLu6eMO5cX894csZ4PZ1SSmG5G40OlTqkEPsX0eEj9+jsod6yPvXyjxjJrvHp4tGZbWPHSqCd2E2OFM+JqZaATLTF1H5Dx0AQkwDIcSRNnoejLlA+GVXDC4AGygc+sGQgTJswo5hS8Mi2yPn3Hw2gLJupM1PfQ7ss62mRN5H+bpuok3nrDY8kodbUB2OEKDeWTNANrQOF4wlmzzDuutpp2HH6H2eQtFEkmJmk6j44SQfr8CRsuNJl9CKQ3bUkrLncI9EeFVZIL/ErpfnmB0M5SmuZLlU0/qcQ4zLeYPLfllT6/BqnGqUs7I1ZWw6QLdJA6luwpiuxDgjuKwrJmy2uyTKIOjD3JKXq66kkJgMaaYwexAdf/Kw2U9VgSOibrAaiEOQpWzqHMzDs0NdKw6ApVs6YdRYkApl6j7kJP0puSuGxEUB7jc1WIhmIPyB1Ggw98keF47l7LsrVi+umJ/F9Z7eFrhB32yHeeRWdTK1z6nU1d6z6/gv7o2blzMdBUizYQ8hwpVpfze13cy5j20KKunC8SnRmEZtNw2W/vdvJVglQlAB7yAiThYa4guI3ajvtxa+9QAih7+Cx+NF3ajDmYgdDHPsNXIE3YQWHlBu9Xj0XdnjDqN5aRm3xsruqvu5wxH0h7vQnjodHtykG0xL1t1hSPZW1s=
+    draft: true
+    file: xaviermaso.pdf
+    provider: releases
+    skip_cleanup: true
+    on:
+      branches:
+        only: "-master"
+      tags: false
+
+services: docker
+
+script:
+  - docker run --rm -it --user $(id -u):$(id -g) -v $(pwd):/app -w /app pamplemousse/latex pdflatex cv.tex
+  - mv cv.pdf xaviermaso.pdf
