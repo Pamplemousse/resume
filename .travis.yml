@@ -12,6 +12,7 @@ deploy:
       branches:
         only: "-master"
       tags: false
+    overwrite: true
 
 services: docker
 
