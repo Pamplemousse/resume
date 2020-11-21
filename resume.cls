@@ -1,10 +1,12 @@
-\ProvidesClass{resume}[2010/07/10 v0.9 Resume class]
+\ProvidesClass{resume}
 
-\LoadClass[11pt,letterpaper]{article} % Font size and paper type
+\LoadClass[11pt,letterpaper]{article}
 
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
+\usepackage[left=0.40in,top=0.5in,right=0.40in,bottom=0.5in]{geometry} % Document margins
+\usepackage[utf8]{inputenc}
 
 \RequirePackage{hyperref}
 
