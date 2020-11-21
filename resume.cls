@@ -5,7 +5,7 @@
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
-\usepackage[left=0.40in,top=0.5in,right=0.40in,bottom=0.5in]{geometry} % Document margins
+\usepackage[left=0.40in,top=0.8in,right=0.40in,bottom=0.8in]{geometry} % Document margins
 \usepackage[utf8]{inputenc}
 
 \RequirePackage{hyperref}
@@ -91,7 +91,7 @@
 \def \printname {
   \begingroup
     \hfil{\huge\bf \@name}\hfil
-    \medskip\break
+    \bigskip\break
   \endgroup
 }
 
@@ -124,7 +124,7 @@
 %----------------------------------------------------------------------------------------
 % Defines the rSection environment for the large sections within the CV
 \newenvironment{rSection}[1]{ % 1 input argument - section name
-  \smallskip
+  \bigskip
   \par\vspace{\parskip}
   {%
     \LARGE\color{headercolor}%
@@ -154,7 +154,7 @@
    \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
   }{
   \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
+  \medskip
 }
 
 %----------------------------------------------------------------------------------------
