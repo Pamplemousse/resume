@@ -49,7 +49,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	HEADINGS COMMANDS: Commands for printing name and address
+% HEADINGS COMMANDS: Commands for printing name and address
 %----------------------------------------------------------------------------------------
 
 \def \name#1{\def\@name{#1}} % Defines the \name command to set name
@@ -84,35 +84,33 @@
     \centerline{#1}
   \endgroup
   \par
-  \addressskip
+  \smallskip
 }
 
 % \printname is used to print the name as a page header
 \def \printname {
   \begingroup
-    %\hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
-    \hfil{\namesize\bf \@name}\hfil
-    \nameskip\break
+    \hfil{\huge\bf \@name}\hfil
+    \medskip\break
   \endgroup
 }
 
 % \printcvtitle is used to print the title as a page header
 \def \printcvtitle {
   \begingroup
-    \centerline{\cvtitlesize \@cvtitle}
-    %\smallskip
-		\break
+    \centerline{\huge \@cvtitle}
+    \break
   \endgroup
 }
 
 %----------------------------------------------------------------------------------------
-%	PRINT THE HEADING LINES
+% PRINT THE HEADING LINES
 %----------------------------------------------------------------------------------------
 \let\ori@document=\document
 \renewcommand{\document}{
   \ori@document  % Begin document
   \printname % Print the name specified with \name
-	\printcvtitle
+  \printcvtitle
   \@ifundefined{@addressone}{}{ % Print the first address if specified
     \printaddress{\@addressone}}
   \@ifundefined{@addresstwo}{}{ % Print the second address if specified
@@ -122,18 +120,18 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	SECTION FORMATTING
+% SECTION FORMATTING
 %----------------------------------------------------------------------------------------
 % Defines the rSection environment for the large sections within the CV
 \newenvironment{rSection}[1]{ % 1 input argument - section name
-  \sectionskip
-	\par\vspace{\parskip}
+  \smallskip
+  \par\vspace{\parskip}
   {%
     \LARGE\color{headercolor}%
     \@sectioncolor #1%
   }
   \par\vspace{\parskip}
-  \sectionlineskip
+  \smallskip
   \hrule % Horizontal line
   \begin{list}{}{ % List for each individual item in the section
     \setlength{\leftmargin}{1.5em} % Margin within the section
@@ -144,7 +142,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE FORMATTING
+% SUBSECTION FORMATTING
 %----------------------------------------------------------------------------------------
 \newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
  {\bf #1} \hfill {#2} % Bold company name and date on the right
@@ -159,17 +157,8 @@
   \vspace{0.5em} % Some space after the list of bullet points
 }
 
-% The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
-\def\namesize{\huge} % Size of the name at the top of the document
-%\def\cvtitlesize{\large}
-\def\cvtitlesize{\huge}
-\def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
-\def\sectionlineskip{\smallskip} % The space above the horizontal line for each section
-\def\nameskip{\medskip} % The space after your name at the top
-\def\sectionskip{\smallskip} % The space after the heading section
-
 %----------------------------------------------------------------------------------------
-%	ETOILES JAUGES NIVEAU
+% STARS
 %----------------------------------------------------------------------------------------
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric}
@@ -185,4 +174,3 @@
    }
   \end{tikzpicture}
 }
-
